@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { supabase } from './lib/supabase'
 import logoClub from './assets/logo_club.svg'
 import logoCodea from './assets/codea.png'
-import flyer from './assets/MEETR (1) (1).png'
 
 const CARRERAS = [
   'Ciencias Administrativas',
@@ -58,14 +57,8 @@ export default function App() {
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 py-14">
 
-      {/* ── Base: flyer muy difuminado ── */}
-      <div
-        className="absolute inset-0 bg-cover bg-center scale-110"
-        style={{ backgroundImage: `url(${flyer})`, filter: 'blur(24px)', opacity: 0.18 }}
-      />
-
-      {/* ── Fondo oscuro base ── */}
-      <div className="absolute inset-0" style={{ background: '#0e1a0f' }} />
+      {/* ── Fondo oscuro base — siempre visible detrás de todo ── */}
+      <div className="fixed inset-0" style={{ background: '#0e1a0f', zIndex: -2 }} />
 
       {/* ── Orbes de color Codea ── */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -165,7 +158,7 @@ export default function App() {
                     color: form.carrera ? 'rgba(255,255,255,0.90)' : 'rgba(255,255,255,0.30)',
                   }}
                   className="w-full rounded-xl px-4 py-3.5 text-sm outline-none transition-all
-                    focus:border-[rgba(78,120,72,0.6)] focus:ring-2 focus:ring-[rgba(78,120,72,0.2)]
+                    focus:border-[rgba(255,255,255,0.35)] focus:ring-2 focus:ring-[rgba(255,255,255,0.08)]
                     disabled:opacity-40 disabled:cursor-not-allowed"
                 >
                   <option value="" disabled style={{ background: '#1a2e1b', color: 'rgba(255,255,255,0.4)' }}>
@@ -241,7 +234,7 @@ function GlassField({ label, name, value, onChange, placeholder, disabled }) {
         }}
         className="w-full rounded-xl px-4 py-3.5 text-sm outline-none transition-all
           placeholder:text-white/20
-          focus:border-[rgba(78,120,72,0.6)] focus:ring-2 focus:ring-[rgba(78,120,72,0.2)]
+          focus:border-[rgba(255,255,255,0.35)] focus:ring-2 focus:ring-[rgba(255,255,255,0.08)]
           disabled:opacity-40 disabled:cursor-not-allowed"
       />
     </div>

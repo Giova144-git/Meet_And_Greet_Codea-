@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html, body, #root {
+  min-height: 100%;
+  background: #0e1a0f;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px rgba(30, 50, 30, 0.95) inset !important;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.90) !important;
+  caret-color: rgba(255, 255, 255, 0.90);
+}
